@@ -1,0 +1,150 @@
+/*
+  main styles
+*/
+
+.main-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.main-container section {
+  border-bottom: 1px solid black;
+}
+
+/*
+    upder header styles
+  */
+
+.upper-header {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  width: 100%;
+  background-color: rgb(97, 97, 97);
+  padding: 5px;
+  align-items: center;
+  position: fixed;
+}
+
+/*
+    header styles
+  */
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  width: 100%;
+}
+
+.my-img {
+  width: 100px;
+  border-radius: 100%;
+  margin-top: -50px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.name {
+  align-self: flex-start;
+  flex-basis: 20%;
+}
+
+.para {
+  align-self: flex-end;
+}
+
+/*
+    experience styles
+  */
+
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.experience-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*
+    education styles
+  */
+
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-contaner {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+    skills styles
+  */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+/*
+    projects styles
+  */
+
+.projets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  padding-bottom: 10px;
+}
