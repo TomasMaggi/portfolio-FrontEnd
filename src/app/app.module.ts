@@ -6,6 +6,7 @@ import { UpperMenuComponent } from './components/upper-menu/upper-menu.component
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './inner-components/banner/banner.component';
+import { AboutMeComponent } from './inner-components/about-me/about-me.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BannerComponent } from './inner-components/banner/banner.component';
     MainContentComponent,
     FooterComponent,
     BannerComponent,
+    AboutMeComponent,
   ],
   imports: [BrowserModule],
   providers: [],

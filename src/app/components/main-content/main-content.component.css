@@ -16,32 +16,6 @@
 }
 
 /*
-      header styles
-    */
-.my-img {
-  width: 100px;
-  border-radius: 100%;
-  margin-top: -50px;
-}
-
-.text-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.name {
-  align-self: flex-start;
-  flex-basis: 20%;
-}
-
-.para {
-  align-self: flex-end;
-}
-
-/*
       experience styles
     */
 
