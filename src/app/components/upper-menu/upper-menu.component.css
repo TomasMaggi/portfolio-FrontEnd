@@ -1,0 +1,10 @@
+.upper-header {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  width: 100%;
+  background-color: rgb(97, 97, 97);
+  padding: 5px;
+  align-items: center;
+  position: fixed;
+}
