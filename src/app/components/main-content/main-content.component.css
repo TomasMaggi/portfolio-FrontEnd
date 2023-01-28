@@ -18,15 +18,6 @@
 /*
       header styles
     */
-.header {
-  display: flex;
-  flex-direction: column;
-}
-
-.banner {
-  width: 100%;
-}
-
 .my-img {
   width: 100px;
   border-radius: 100%;
