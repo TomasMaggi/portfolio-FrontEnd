@@ -5,6 +5,7 @@ body {
   flex-direction: column;
 }
 
+/* used by all the images in the page but banner*/
 .logo {
   width: 100px;
 }
