@@ -10,7 +10,7 @@ import { IPersona } from '../../interfaces/persona_interface';
 export class AboutMeComponent implements OnInit {
   // doesnt matter what is inside the obj cause is just sended to the
   // service so he knows what type of object send back
-  emptyObj: IPersona = {
+  dataload: IPersona = {
     id: 0,
     first_name: '',
     last_name: '',
@@ -30,9 +30,9 @@ export class AboutMeComponent implements OnInit {
 
     // refill the object with the data inside the response
     this.getdataservice
-      .get_dataload(url, this.emptyObj)
+      .get_dataload(url, this.dataload)
       .subscribe((data: any) => {
-        this.emptyObj = data;
+        this.dataload = data;
       });
   }
 }
