@@ -1,16 +1,9 @@
 <section class="about-me">
-  <img
-    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
-    alt="my img"
-    class="my-img"
-  />
+  <img src="{{ emptyObj.img_route }}" alt="my img" class="my-img" />
   <div class="text-container">
-    <p class="name">Tomas Maggi</p>
+    <p class="name">{{ emptyObj.first_name }} {{ emptyObj.last_name }}</p>
     <p class="para">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-      voluptatem tempora, ad expedita quidem voluptatum rerum nemo libero nam
-      laudantium accusantium odit facilis qui quisquam dolor nisi. Praesentium,
-      officia ab?
+      {{ emptyObj.about_me_text }}
     </p>
   </div>
 </section>
