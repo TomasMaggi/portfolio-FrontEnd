@@ -7,6 +7,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './inner-components/banner/banner.component';
 import { AboutMeComponent } from './inner-components/about-me/about-me.component';
+import { ExperienceComponent } from './inner-components/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AboutMeComponent } from './inner-components/about-me/about-me.component
     FooterComponent,
     BannerComponent,
     AboutMeComponent,
+    ExperienceComponent,
   ],
   imports: [BrowserModule],
   providers: [],

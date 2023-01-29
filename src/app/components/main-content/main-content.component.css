@@ -19,21 +19,6 @@
       experience styles
     */
 
-.experience {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-bottom: 10px;
-}
-
-.experience-container {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  align-items: center;
-  justify-content: space-between;
-}
-
 /*
       education styles
     */
