@@ -14,35 +14,6 @@
 .main-container section {
   border-bottom: 1px solid black;
 }
-
-/*
-      experience styles
-    */
-
-/*
-      education styles
-    */
-
-.education {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-bottom: 10px;
-}
-
-.education-container {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.info-contaner {
-  display: flex;
-  flex-direction: column;
-}
-
 /*
       skills styles
     */
