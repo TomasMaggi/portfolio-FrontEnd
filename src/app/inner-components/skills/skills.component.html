@@ -1,0 +1,15 @@
+<section class="skills">
+  <div class="title-section">
+    <h3>skills</h3>
+  </div>
+
+  <div class="container" class="container">
+    <div *ngFor="let skill of dataload" class="skills-container">
+      <div class="skill">
+        <img src="{{ skill.icon_url }}" alt="skill image" class="logo" />
+        <h3 class="skill-name">{{ skill.technology }}</h3>
+        <p class="percentage">{{ skill.percentage }}%</p>
+      </div>
+    </div>
+  </div>
+</section>

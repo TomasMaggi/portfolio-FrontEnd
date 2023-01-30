@@ -1,0 +1,21 @@
+<section class="experience">
+  <div class="title-section">
+    <h3>Profesional Experience</h3>
+  </div>
+
+  <div *ngFor="let experience of dataload">
+    <div class="experience-container">
+      <img src="{{ experience.company_logo_url }}" alt="logo" class="logo" />
+      <div class="description">
+        <h5>{{ experience.company_name }}</h5>
+        <p>{{ experience.job_description }}</p>
+        <div *ngIf="experience.start_date != null">
+          <p>start date: {{ experience.start_date }}</p>
+        </div>
+        <div *ngIf="experience.finish_date != null">
+          <p>finish date: {{ experience.finish_date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
