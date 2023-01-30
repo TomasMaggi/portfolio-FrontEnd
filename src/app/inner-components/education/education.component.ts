@@ -24,7 +24,6 @@ export class EducationComponent implements OnInit {
       .get_dataload(url, this.dataload)
       .subscribe((data: any) => {
         this.dataload = data;
-        console.log(data);
       });
   }
 }
