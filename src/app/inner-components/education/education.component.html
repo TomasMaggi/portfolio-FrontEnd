@@ -2,38 +2,27 @@
   <div class="title-section">
     <h3>Education</h3>
   </div>
-  <div class="education-container">
-    <img
-      src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
-      alt="logo"
-      class="logo"
-    />
-    <div class="info-container">
-      <h4 class="education-title">title</h4>
-      <h6 class="grade">posgrade</h6>
-      <p class="description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt,
-        nihil cumque a asperiores illum eius accusantium laudantium ipsum eos
-        sit nisi doloremque sunt debitis, minima voluptatum numquam voluptates
-        explicabo ab?
-      </p>
-    </div>
-  </div>
-  <div class="education-container">
-    <img
-      src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
-      alt="logo"
-      class="logo"
-    />
-    <div class="info-container">
-      <h4 class="education-title">title</h4>
-      <h6 class="grade">posgrade</h6>
-      <p class="description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt,
-        nihil cumque a asperiores illum eius accusantium laudantium ipsum eos
-        sit nisi doloremque sunt debitis, minima voluptatum numquam voluptates
-        explicabo ab?
-      </p>
+
+  <div *ngFor="let education of dataload">
+    <div class="education-container">
+      <img
+        src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
+        alt="logo"
+        class="logo"
+      />
+      <div class="info-container">
+        <h4 class="education-title">{{ education.title }}</h4>
+        <h6 class="grade">{{ education.type }}</h6>
+        <p class="description">
+          {{ education.description }}
+        </p>
+        <div *ngIf="education.date_of_start != null">
+          <p>started: {{ education.date_of_start }}</p>
+        </div>
+        <div *ngIf="education.date_of_finish != null">
+          <p>finshed: {{ education.date_of_finish }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
