@@ -11,7 +11,7 @@ export class GetDataloadService {
 
   constructor(private http: HttpClient) {}
 
-  get_dataload(p_url: string = 'Persona/1', obj: Object) {
+  get_dataload(p_url: string, obj: Object) {
     // this should be the endpoint to send a get request
     const url: string = this.BASE_URL + p_url;
 

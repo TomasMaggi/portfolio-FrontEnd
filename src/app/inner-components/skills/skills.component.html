@@ -2,33 +2,14 @@
   <div class="title-section">
     <h3>skills</h3>
   </div>
-  <div class="skills-container">
-    <div class="skill">
-      <img
-        src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
-        alt="skill image"
-        class="logo"
-      />
-      <h3 class="skill-name">html</h3>
-      <p class="percentage">90%</p>
-    </div>
-    <div class="skill">
-      <img
-        src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
-        alt="skill image"
-        class="logo"
-      />
-      <h3 class="skill-name">css</h3>
-      <p class="percentage">90%</p>
-    </div>
-    <div class="skill">
-      <img
-        src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
-        alt="skill image"
-        class="logo"
-      />
-      <h3 class="skill-name">js</h3>
-      <p class="percentage">90%</p>
+
+  <div class="container" class="container">
+    <div *ngFor="let skill of dataload" class="skills-container">
+      <div class="skill">
+        <img src="{{ skill.icon_url }}" alt="skill image" class="logo" />
+        <h3 class="skill-name">{{ skill.technology }}</h3>
+        <p class="percentage">{{ skill.percentage }}%</p>
+      </div>
     </div>
   </div>
 </section>
