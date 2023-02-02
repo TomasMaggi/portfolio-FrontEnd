@@ -12,6 +12,7 @@ import { ExperienceComponent } from './inner-components/experience/experience.co
 import { EducationComponent } from './inner-components/education/education.component';
 import { SkillsComponent } from './inner-components/skills/skills.component';
 import { ProjectsComponent } from './inner-components/projects/projects.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ProjectsComponent } from './inner-components/projects/projects.componen
     ProjectsComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

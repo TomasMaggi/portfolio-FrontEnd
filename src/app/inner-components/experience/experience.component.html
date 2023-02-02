@@ -10,10 +10,10 @@
         <h5>{{ experience.company_name }}</h5>
         <p>{{ experience.job_description }}</p>
         <div *ngIf="experience.start_date != null">
-          <p>start date: {{ experience.start_date }}</p>
+          <p>start date: {{ transformDate(experience.start_date) }}</p>
         </div>
         <div *ngIf="experience.finish_date != null">
-          <p>finish date: {{ experience.finish_date }}</p>
+          <p>finish date: {{ transformDate(experience.finish_date) }}</p>
         </div>
       </div>
     </div>

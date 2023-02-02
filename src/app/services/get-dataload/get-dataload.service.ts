@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs';
   providedIn: 'root',
 })
 export class GetDataloadService {
-  BASE_URL: string = 'https://ap-api-y2nq.onrender.com/api/v1/';
+  BASE_URL: string = 'https://ap-restapi.onrender.com/api/v1/';
 
   constructor(private http: HttpClient) {}
 

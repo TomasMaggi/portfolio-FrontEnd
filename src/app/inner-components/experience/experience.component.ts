@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IExperience } from 'src/app/interfaces/experience_interface';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-experience',
@@ -11,7 +12,10 @@ export class ExperienceComponent implements OnInit {
   // later whis will be filled with the info inside the request
   dataload: IExperience[] = [];
 
-  constructor(private getdataservice: GetDataloadService) {}
+  constructor(
+    private getdataservice: GetDataloadService,
+    private datepipe: DatePipe
+  ) {}
 
   ngOnInit(): void {
     this.fill();
@@ -27,5 +31,8 @@ export class ExperienceComponent implements OnInit {
       .subscribe((data: any) => {
         this.dataload = data;
       });
+  }
+  transformDate(date: any) {
+    return this.datepipe.transform(date, 'yyyy-MM-dd');
   }
 }

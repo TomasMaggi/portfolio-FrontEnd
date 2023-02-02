@@ -17,10 +17,10 @@
           {{ education.description }}
         </p>
         <div *ngIf="education.date_of_start != null">
-          <p>started: {{ education.date_of_start }}</p>
+          <p>started: {{ transformDate(education.date_of_start) }}</p>
         </div>
         <div *ngIf="education.date_of_finish != null">
-          <p>finshed: {{ education.date_of_finish }}</p>
+          <p>finshed: {{ transformDate(education.date_of_finish) }}</p>
         </div>
       </div>
     </div>
