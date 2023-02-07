@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
 import { IEducation } from 'src/app/interfaces/education_interface';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-education',
@@ -10,7 +11,10 @@ import { IEducation } from 'src/app/interfaces/education_interface';
 export class EducationComponent implements OnInit {
   dataload: IEducation[] = [];
 
-  constructor(private getdataservice: GetDataloadService) {}
+  constructor(
+    private getdataservice: GetDataloadService,
+    private datepipe: DatePipe
+  ) {}
 
   ngOnInit(): void {
     this.fill();
@@ -25,5 +29,9 @@ export class EducationComponent implements OnInit {
       .subscribe((data: any) => {
         this.dataload = data;
       });
+  }
+
+  transformDate(date: any) {
+    return this.datepipe.transform(date, 'yyyy-MM-dd');
   }
 }

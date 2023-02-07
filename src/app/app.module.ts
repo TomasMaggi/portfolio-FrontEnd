@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { UpperMenuComponent } from './components/upper-menu/upper-menu.component';
@@ -12,6 +13,8 @@ import { ExperienceComponent } from './inner-components/experience/experience.co
 import { EducationComponent } from './inner-components/education/education.component';
 import { SkillsComponent } from './inner-components/skills/skills.component';
 import { ProjectsComponent } from './inner-components/projects/projects.component';
+import { DatePipe } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,10 @@ import { ProjectsComponent } from './inner-components/projects/projects.componen
     EducationComponent,
     SkillsComponent,
     ProjectsComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
-  providers: [],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
