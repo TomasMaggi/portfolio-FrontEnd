@@ -8,4 +8,5 @@ body {
 /* used by all the images in the page but banner*/
 .logo {
   width: 100px;
+  height: 100px;
 }

@@ -16,6 +16,8 @@ export class GetDataloadService {
     const url: string = this.BASE_URL + p_url;
 
     // we use obj the copy the interface sended from the component into this request
+    console.log(url);
+
     return this.http.get<typeof obj>(url);
   }
 }

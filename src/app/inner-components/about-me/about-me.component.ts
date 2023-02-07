@@ -26,7 +26,7 @@ export class AboutMeComponent implements OnInit {
 
   fill(): void {
     // this is the endpoint to call to GET the aboutme data
-    let url = 'persona/1/';
+    let url = 'persona/1';
 
     // refill the object with the data inside the response
     this.getdataservice
