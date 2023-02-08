@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="form" action="/">
+  <form class="form">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input
@@ -25,9 +25,9 @@
 
     <div class="form-group">
       <button
-        type="submit"
+        type="button"
         class="btn btn-primary"
-        (submit)="onSubmit(email.value, password.value)"
+        (click)="onSubmit(email.value, password.value)"
       >
         Submit
       </button>

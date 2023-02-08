@@ -12,6 +12,6 @@ export class MainContentComponent implements OnInit {
 
   ngOnInit(): void {
     // if jwt is defined means we are authenticated
-    this.logged = localStorage.getItem('jwt') !== undefined;
+    this.logged = localStorage.getItem('jwt') !== null;
   }
 }
