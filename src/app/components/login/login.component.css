@@ -1,0 +1,15 @@
+.container {
+  padding: 11em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid black;
+  border-radius: 10%;
+  padding: 20px;
+}
