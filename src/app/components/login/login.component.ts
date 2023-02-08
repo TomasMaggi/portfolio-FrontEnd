@@ -9,9 +9,15 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class LoginComponent implements OnInit {
   constructor(private login: LoginService) {}
 
+  onSubmit(email: string, password: string) {
+    console.log(email, password);
+
+    this.login.auth(email, password).subscribe((data) => {
+      localStorage.setItem('jwt', data['token']);
+    });
+  }
+
   ngOnInit(): void {
-    this.login
-      .auth('t@mail.com', '1234')
-      .subscribe((data) => console.log(data));
+    console.log(localStorage.getItem('jwt'));
   }
 }
