@@ -10,8 +10,6 @@ export class LoginComponent implements OnInit {
   constructor(private login: LoginService) {}
 
   onSubmit(email: string, password: string) {
-    console.log(email, password);
-
     this.login.auth(email, password).subscribe((data) => {
       localStorage.setItem('jwt', data['token']);
     });
