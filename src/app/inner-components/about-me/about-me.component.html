@@ -17,7 +17,11 @@
     <textarea id="" cols="30" rows="10" #about class="para">{{
       dataload.about_me_text
     }}</textarea>
-    <button (click)="editing = false">save</button>
+
+    <button (click)="editing = false">cancel</button>
+    <button (click)="save(nombre.value, apellido.value, about.value)">
+      save
+    </button>
   </div>
   <div *ngIf="!editing" class="text-container">
     <p class="name">{{ dataload.first_name }} {{ dataload.last_name }}</p>
@@ -25,7 +29,7 @@
       {{ dataload.about_me_text }}
     </p>
     <div *ngIf="islogged">
-      <button (click)="editing = true">edit</button>
+      <button (click)="edit()">edit</button>
     </div>
   </div>
 </section>

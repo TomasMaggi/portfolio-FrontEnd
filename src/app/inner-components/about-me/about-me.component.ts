@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
 import { IPersona } from '../../interfaces/persona_interface';
 
@@ -23,7 +24,10 @@ export class AboutMeComponent implements OnInit {
     img_route: '',
   };
 
-  constructor(private getdataservice: GetDataloadService) {}
+  constructor(
+    private getdataservice: GetDataloadService,
+    private editdataservice: EditDataService
+  ) {}
 
   ngOnInit(): void {
     this.fill();
@@ -43,6 +47,21 @@ export class AboutMeComponent implements OnInit {
   }
 
   edit() {
-    console.log('editando');
+    this.editing = true;
+  }
+
+  save(p_nombre: string, p_apellido: string, p_about: string) {
+    this.editing = false;
+
+    const data = {
+      first_name: p_nombre,
+      last_name: p_apellido,
+      about_me_text: p_about,
+      img_route: this.dataload.img_route,
+    };
+
+    this.editdataservice
+      .changeEntity('persona/1', data)
+      .subscribe(() => window.location.reload());
   }
 }
