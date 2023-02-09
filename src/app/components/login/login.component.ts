@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(email: string, password: string) {
+    this.loading_message.sendData(false);
     this.login.auth(email, password).subscribe((data) => {
       localStorage.setItem('jwt', data['token']);
       this.router.navigate(['/home']).then(() => window.location.reload());
