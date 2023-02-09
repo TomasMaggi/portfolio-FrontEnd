@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { MainContentComponent } from '../main-content/main-content.component';
 
@@ -9,7 +10,13 @@ import { MainContentComponent } from '../main-content/main-content.component';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private login: LoginService, private router: Router) {}
+  constructor(
+    private login: LoginService,
+    private router: Router,
+    private loading_message: IsLoadingService
+  ) {
+    this.loading_message.sendData(true);
+  }
 
   onSubmit(email: string, password: string) {
     this.login.auth(email, password).subscribe((data) => {
@@ -18,7 +25,5 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log(localStorage.getItem('jwt'));
-  }
+  ngOnInit(): void {}
 }
