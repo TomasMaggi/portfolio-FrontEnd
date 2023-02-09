@@ -1,1 +1,17 @@
+.loading {
+  z-index: 99;
+  background-color: grey;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: 100%;
+  height: 100%;
+
+  opacity: 50%;
+}
+
+.hidden {
+  display: none;
+}

@@ -19,6 +19,7 @@ import { ExperienceComponentComponent } from './content-components/experience-co
 import { EducationComponentComponent } from './content-components/education-component/education-component.component';
 import { SkillComponentComponent } from './content-components/skill-component/skill-component.component';
 import { ProjectComponentComponent } from './content-components/project-component/project-component.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ProjectComponentComponent } from './content-components/project-componen
     EducationComponentComponent,
     SkillComponentComponent,
     ProjectComponentComponent,
+    LoadingComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [DatePipe],
