@@ -31,7 +31,6 @@ export class AboutMeComponent implements OnInit {
 
   ngOnInit(): void {
     this.fill();
-    console.log(this.islogged);
   }
 
   fill(): void {
