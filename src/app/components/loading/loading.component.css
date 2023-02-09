@@ -21,7 +21,7 @@
 }
 .loadingio-spinner-rolling-3xlhxy46fe8 {
   width: 200px;
-  height: 200px;
+  height: 300px;
   display: inline-block;
   overflow: hidden;
 }
@@ -35,4 +35,9 @@
 }
 .ldio-5boildfybgi div {
   box-sizing: content-box;
+}
+.para {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 15px;
 }
