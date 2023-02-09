@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProject } from 'src/app/interfaces/project_interface';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
 
@@ -9,6 +9,9 @@ import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.s
 })
 export class ProjectsComponent implements OnInit {
   dataload: IProject[] = [];
+
+  @Input()
+  isLogged: boolean = false;
 
   constructor(private getdataservice: GetDataloadService) {}
 
