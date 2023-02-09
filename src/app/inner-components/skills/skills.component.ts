@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ISkill } from 'src/app/interfaces/skill_interface';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
 
@@ -9,6 +9,9 @@ import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.s
 })
 export class SkillsComponent implements OnInit {
   dataload: ISkill[] = [];
+
+  @Input()
+  isLogged: boolean = false;
 
   constructor(private getdataservice: GetDataloadService) {}
 

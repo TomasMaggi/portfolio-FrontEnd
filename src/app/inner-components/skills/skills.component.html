@@ -5,11 +5,10 @@
 
   <div class="container" class="container">
     <div *ngFor="let skill of dataload" class="skills-container">
-      <div class="skill">
-        <img src="{{ skill.icon_url }}" alt="skill image" class="logo" />
-        <h3 class="skill-name">{{ skill.technology }}</h3>
-        <p class="percentage">{{ skill.percentage }}%</p>
-      </div>
+      <app-skill-component
+        [dataload]="skill"
+        [isLogged]="isLogged"
+      ></app-skill-component>
     </div>
   </div>
 </section>

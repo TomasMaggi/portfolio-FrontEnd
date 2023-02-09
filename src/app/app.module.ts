@@ -17,6 +17,7 @@ import { DatePipe } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { ExperienceComponentComponent } from './content-components/experience-component/experience-component.component';
 import { EducationComponentComponent } from './content-components/education-component/education-component.component';
+import { SkillComponentComponent } from './content-components/skill-component/skill-component.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EducationComponentComponent } from './content-components/education-comp
     LoginComponent,
     ExperienceComponentComponent,
     EducationComponentComponent,
+    SkillComponentComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [DatePipe],
