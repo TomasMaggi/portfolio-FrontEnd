@@ -15,6 +15,7 @@ import { SkillsComponent } from './inner-components/skills/skills.component';
 import { ProjectsComponent } from './inner-components/projects/projects.component';
 import { DatePipe } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
+import { ExperienceComponentComponent } from './content-components/experience-component/experience-component.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginComponent } from './components/login/login.component';
     SkillsComponent,
     ProjectsComponent,
     LoginComponent,
+    ExperienceComponentComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [DatePipe],

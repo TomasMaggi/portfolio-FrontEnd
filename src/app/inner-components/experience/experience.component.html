@@ -4,58 +4,9 @@
   </div>
 
   <div *ngFor="let experience of dataload">
-    <div *ngIf="!experience.editing">
-      <div class="experience-container">
-        <img src="{{ experience.company_logo_url }}" alt="logo" class="logo" />
-        <div class="description">
-          <h5>{{ experience.company_name }}</h5>
-          <p>{{ experience.job_description }}</p>
-          <div *ngIf="experience.start_date != null">
-            <p>start date: {{ transformDate(experience.start_date) }}</p>
-          </div>
-          <div *ngIf="experience.finish_date != null">
-            <p>finish date: {{ transformDate(experience.finish_date) }}</p>
-          </div>
-        </div>
-      </div>
-      <div *ngIf="isLogged">
-        <button (click)="edit(experience)">edit</button>
-      </div>
-    </div>
-    <div *ngIf="experience.editing">
-      <div class="experience-container">
-        <img src="{{ experience.company_logo_url }}" alt="logo" class="logo" />
-        <div class="description">
-          <div #id style="display: none">{{ experience.id }}</div>
-          <input
-            type="text"
-            value="{{ experience.company_name }}"
-            #company_name
-          />
-          <textarea cols="30" rows="10" #description>
-            {{ experience.job_description }}
-          </textarea>
-          <div *ngIf="experience.start_date != null">
-            <label for="start_date">start date:</label>
-            <input
-              #start_date
-              id="start_date"
-              type="date"
-              value="{{ transformDate(experience.start_date) }}"
-            />
-          </div>
-          <div *ngIf="experience.finish_date != null">
-            <label for="finish_date">finish date:</label>
-            <input
-              #start_date
-              id="finish_date"
-              type="date"
-              value="{{ transformDate(experience.finish_date) }}"
-            />
-          </div>
-        </div>
-      </div>
-      <button (click)="experience.editing = false">cancel</button>
-    </div>
+    <app-experience-component
+      [dataload]="experience"
+      [isLogged]="isLogged"
+    ></app-experience-component>
   </div>
 </section>
