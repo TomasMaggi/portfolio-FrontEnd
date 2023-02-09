@@ -27,9 +27,7 @@ export class EducationComponentComponent implements OnInit {
 
   constructor(private datepipe: DatePipe, private putdata: EditDataService) {}
 
-  ngOnInit(): void {
-    console.log(this.isLogged);
-  }
+  ngOnInit(): void {}
 
   transformDate(date: any) {
     return this.datepipe.transform(date, 'yyyy-MM-dd');

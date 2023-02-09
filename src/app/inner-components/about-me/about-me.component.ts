@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 import { IPersona } from '../../interfaces/persona_interface';
 
 @Component({
@@ -26,12 +27,12 @@ export class AboutMeComponent implements OnInit {
 
   constructor(
     private getdataservice: GetDataloadService,
-    private editdataservice: EditDataService
+    private editdataservice: EditDataService,
+    private loading_message: IsLoadingService
   ) {}
 
   ngOnInit(): void {
     this.fill();
-    console.log(this.islogged);
   }
 
   fill(): void {
@@ -43,6 +44,7 @@ export class AboutMeComponent implements OnInit {
       .get_dataload(url, this.dataload)
       .subscribe((data: any) => {
         this.dataload = data;
+        this.loading_message.sendData(false);
       });
   }
 
@@ -60,8 +62,9 @@ export class AboutMeComponent implements OnInit {
       img_route: this.dataload.img_route,
     };
 
-    this.editdataservice
-      .changeEntity('persona/1', data)
-      .subscribe(() => window.location.reload());
+    this.loading_message.sendData(true);
+    this.editdataservice.changeEntity('persona/1', data).subscribe(() => {
+      window.location.reload();
+    });
   }
 }
