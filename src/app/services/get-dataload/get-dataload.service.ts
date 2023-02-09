@@ -7,7 +7,7 @@ import { catchError, retry } from 'rxjs';
   providedIn: 'root',
 })
 export class GetDataloadService {
-  BASE_URL: string = 'https://ap-restapi.onrender.com/api/v1/';
+  BASE_URL: string = 'http://localhost:8080/api/v1/';
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +16,8 @@ export class GetDataloadService {
     const url: string = this.BASE_URL + p_url;
 
     // we use obj the copy the interface sended from the component into this request
+    console.log(url);
+
     return this.http.get<typeof obj>(url);
   }
 }

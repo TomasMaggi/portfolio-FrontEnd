@@ -1,8 +1,8 @@
 <main class="main-container">
   <app-banner></app-banner>
-  <app-about-me></app-about-me>
-  <app-experience></app-experience>
-  <app-education></app-education>
-  <app-skills></app-skills>
-  <app-projects></app-projects>
+  <app-about-me [islogged]="logged"></app-about-me>
+  <app-experience [isLogged]="logged"></app-experience>
+  <app-education [isLogged]="logged"></app-education>
+  <app-skills [isLogged]="logged"></app-skills>
+  <app-projects [isLogged]="logged"></app-projects>
 </main>

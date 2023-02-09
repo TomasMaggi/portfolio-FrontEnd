@@ -1,0 +1,51 @@
+<div class="education-container">
+  <div *ngIf="editing">
+    <div class="info-container">
+      <input type="text" value="{{ dataload.title }}" #title />
+      <input type="text" value="{{ dataload.type }}" #type />
+      <input type="text" value="{{ dataload.institution }}" #institution />
+      <textarea cols="30" rows="10" #description>
+        {{ dataload.description }}
+      </textarea>
+      <div *ngIf="dataload.date_of_start != null">
+        <p>started: {{ transformDate(dataload.date_of_start) }}</p>
+      </div>
+      <div *ngIf="dataload.date_of_finish != null">
+        <p>finshed: {{ transformDate(dataload.date_of_finish) }}</p>
+      </div>
+    </div>
+    <button (click)="editing = false">cancel</button>
+    <button
+      (click)="
+        save(
+          dataload.id,
+          title.value,
+          type.value,
+          institution.value,
+          description.value
+        )
+      "
+    >
+      save
+    </button>
+  </div>
+  <div *ngIf="!editing">
+    <div class="info-container">
+      <h4 class="education-title">{{ dataload.title }}</h4>
+      <h6 class="grade">{{ dataload.type }}</h6>
+      <h6 class="grade">{{ dataload.institution }}</h6>
+      <p class="description">
+        {{ dataload.description }}
+      </p>
+      <div *ngIf="dataload.date_of_start != null">
+        <p>started: {{ transformDate(dataload.date_of_start) }}</p>
+      </div>
+      <div *ngIf="dataload.date_of_finish != null">
+        <p>finshed: {{ transformDate(dataload.date_of_finish) }}</p>
+      </div>
+    </div>
+    <div *ngIf="isLogged">
+      <button (click)="edit()">edit</button>
+    </div>
+  </div>
+</div>

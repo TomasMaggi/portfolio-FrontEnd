@@ -1,9 +1,35 @@
 <section class="about-me">
   <img src="{{ dataload.img_route }}" alt="my img" class="my-img" />
-  <div class="text-container">
+  <div *ngIf="editing" class="text-container">
+    <input
+      type="text"
+      #nombre
+      value="{{ dataload.first_name }}"
+      c
+      lass="name"
+    />
+    <input
+      type="text"
+      #apellido
+      value="{{ dataload.last_name }}"
+      class="name"
+    />
+    <textarea id="" cols="30" rows="10" #about class="para">{{
+      dataload.about_me_text
+    }}</textarea>
+
+    <button (click)="editing = false">cancel</button>
+    <button (click)="save(nombre.value, apellido.value, about.value)">
+      save
+    </button>
+  </div>
+  <div *ngIf="!editing" class="text-container">
     <p class="name">{{ dataload.first_name }} {{ dataload.last_name }}</p>
     <p class="para">
       {{ dataload.about_me_text }}
     </p>
+    <div *ngIf="islogged">
+      <button (click)="edit()">edit</button>
+    </div>
   </div>
 </section>

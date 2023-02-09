@@ -15,6 +15,10 @@ import { SkillsComponent } from './inner-components/skills/skills.component';
 import { ProjectsComponent } from './inner-components/projects/projects.component';
 import { DatePipe } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
+import { ExperienceComponentComponent } from './content-components/experience-component/experience-component.component';
+import { EducationComponentComponent } from './content-components/education-component/education-component.component';
+import { SkillComponentComponent } from './content-components/skill-component/skill-component.component';
+import { ProjectComponentComponent } from './content-components/project-component/project-component.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { LoginComponent } from './components/login/login.component';
     SkillsComponent,
     ProjectsComponent,
     LoginComponent,
+    ExperienceComponentComponent,
+    EducationComponentComponent,
+    SkillComponentComponent,
+    ProjectComponentComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [DatePipe],

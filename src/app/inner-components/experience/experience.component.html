@@ -4,18 +4,9 @@
   </div>
 
   <div *ngFor="let experience of dataload">
-    <div class="experience-container">
-      <img src="{{ experience.company_logo_url }}" alt="logo" class="logo" />
-      <div class="description">
-        <h5>{{ experience.company_name }}</h5>
-        <p>{{ experience.job_description }}</p>
-        <div *ngIf="experience.start_date != null">
-          <p>start date: {{ transformDate(experience.start_date) }}</p>
-        </div>
-        <div *ngIf="experience.finish_date != null">
-          <p>finish date: {{ transformDate(experience.finish_date) }}</p>
-        </div>
-      </div>
-    </div>
+    <app-experience-component
+      [dataload]="experience"
+      [isLogged]="isLogged"
+    ></app-experience-component>
   </div>
 </section>

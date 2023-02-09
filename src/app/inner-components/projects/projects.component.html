@@ -4,15 +4,9 @@
   </div>
 
   <div *ngFor="let project of dataload" class="project-container">
-    <div class="project">
-      <img class="logo" src="{{ project.img_url }}" alt="project img" />
-      <div>
-        <h3 class="project-title">{{ project.title }}</h3>
-        <p class="project-description">
-          {{ project.description }}
-        </p>
-        <a href="{{ project.repo_url }}">link to repo</a>
-      </div>
-    </div>
+    <app-project-component
+      [dataload]="project"
+      [isLogged]="isLogged"
+    ></app-project-component>
   </div>
 </section>

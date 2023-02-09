@@ -1,0 +1,26 @@
+<div class="skill">
+  <div *ngIf="editing">
+    <img src="{{ dataload.icon_url }}" alt="skill image" class="logo" />
+    <input type="text" value="{{ dataload.technology }}" #technology />
+    <input
+      #percentage
+      type="range"
+      name=""
+      min="0"
+      max="100"
+      value="{{ dataload.percentage }}"
+    />
+    <button (click)="save(dataload.id, technology.value, percentage.value)">
+      save
+    </button>
+    <button (click)="editing = false">cancel</button>
+  </div>
+  <div *ngIf="!editing">
+    <img src="{{ dataload.icon_url }}" alt="skill image" class="logo" />
+    <h3 class="skill-name">{{ dataload.technology }}</h3>
+    <p class="percentage">{{ dataload.percentage }}%</p>
+    <div *ngIf="isLogged">
+      <button (click)="edit()">edit</button>
+    </div>
+  </div>
+</div>

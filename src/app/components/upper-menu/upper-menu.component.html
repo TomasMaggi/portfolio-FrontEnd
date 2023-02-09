@@ -1,7 +1,15 @@
 <section class="upper-header">
-  <button class="btn btn-outline-primary">
-    <a href="/login"> <i class="bi bi-person-circle"></i> login </a>
-  </button>
+  <div *ngIf="!isLogged">
+    <button class="btn btn-outline-primary">
+      <a href="/login"> <i class="bi bi-person-circle"></i> login </a>
+    </button>
+  </div>
+  <div *ngIf="isLogged">
+    <button class="btn btn-outline-primary" (click)="logout()">
+      <a href="/"> <i class="bi bi-person-circle"></i> logout </a>
+    </button>
+  </div>
+
   <a href="https:/facebook.com"><i class="bi bi-facebook"></i></a>
   <a href="https:/twitter.com"><i class="bi bi-twitter"></i></a>
   <a href="https:/linkedin.com/in/TomasMaggi"><i class="bi bi-linkedin"></i></a>

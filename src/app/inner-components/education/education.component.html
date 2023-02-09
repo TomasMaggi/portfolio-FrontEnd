@@ -4,25 +4,9 @@
   </div>
 
   <div *ngFor="let education of dataload">
-    <div class="education-container">
-      <img
-        src="https://www.companyfolders.com/blog/media/2015/01/adidas-300x207.jpg"
-        alt="logo"
-        class="logo"
-      />
-      <div class="info-container">
-        <h4 class="education-title">{{ education.title }}</h4>
-        <h6 class="grade">{{ education.type }}</h6>
-        <p class="description">
-          {{ education.description }}
-        </p>
-        <div *ngIf="education.date_of_start != null">
-          <p>started: {{ transformDate(education.date_of_start) }}</p>
-        </div>
-        <div *ngIf="education.date_of_finish != null">
-          <p>finshed: {{ transformDate(education.date_of_finish) }}</p>
-        </div>
-      </div>
-    </div>
+    <app-education-component
+      [dataload]="education"
+      [isLogged]="isLogged"
+    ></app-education-component>
   </div>
 </section>
