@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IExperience } from 'src/app/interfaces/experience_interface';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
 @Component({
   selector: 'app-experience-component',
@@ -25,7 +26,8 @@ export class ExperienceComponentComponent implements OnInit {
 
   constructor(
     private datepipe: DatePipe,
-    private saveDataService: EditDataService
+    private saveDataService: EditDataService,
+    private loadingMessage: IsLoadingService
   ) {}
 
   ngOnInit(): void {}
@@ -54,7 +56,7 @@ export class ExperienceComponentComponent implements OnInit {
     };
 
     this.editing = false;
-
+    this.loadingMessage.sendData(true);
     this.saveDataService
       .changeEntity(`experience/${id}`, data)
       .subscribe(() => {

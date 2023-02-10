@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
 import { IEducation } from 'src/app/interfaces/education_interface';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
 @Component({
   selector: 'app-education-component',
@@ -25,7 +26,11 @@ export class EducationComponentComponent implements OnInit {
 
   editing: boolean = false;
 
-  constructor(private datepipe: DatePipe, private putdata: EditDataService) {}
+  constructor(
+    private datepipe: DatePipe,
+    private putdata: EditDataService,
+    private loadingMessage: IsLoadingService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -52,6 +57,9 @@ export class EducationComponentComponent implements OnInit {
       date_of_start: this.dataload.date_of_start,
       date_of_finish: this.dataload.date_of_start,
     };
+
+    this.loadingMessage.sendData(true);
+
     this.putdata.changeEntity(`education/${id}`, data).subscribe(() => {
       this.editing = false;
       window.location.reload();

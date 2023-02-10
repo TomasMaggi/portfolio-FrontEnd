@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProject } from 'src/app/interfaces/project_interface';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
 @Component({
   selector: 'app-project-component',
@@ -22,7 +23,10 @@ export class ProjectComponentComponent implements OnInit {
   isLogged: boolean = false;
   editing: boolean = false;
 
-  constructor(private editdata: EditDataService) {}
+  constructor(
+    private editdata: EditDataService,
+    private loadingMessage: IsLoadingService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -38,6 +42,8 @@ export class ProjectComponentComponent implements OnInit {
       description: description,
       img_url: this.dataload.img_url,
     };
+
+    this.loadingMessage.sendData(true);
 
     this.editdata.changeEntity(`project/${id}`, data).subscribe(() => {
       this.editing = false;

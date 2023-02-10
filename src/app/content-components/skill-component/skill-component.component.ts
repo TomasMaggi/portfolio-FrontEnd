@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ISkill } from 'src/app/interfaces/skill_interface';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
 @Component({
   selector: 'app-skill-component',
@@ -21,7 +22,10 @@ export class SkillComponentComponent implements OnInit {
 
   editing: boolean = false;
 
-  constructor(private editData: EditDataService) {}
+  constructor(
+    private editData: EditDataService,
+    private loadingMessage: IsLoadingService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -35,6 +39,7 @@ export class SkillComponentComponent implements OnInit {
       percentage: percentage,
       icon_url: this.dataload.icon_url,
     };
+    this.loadingMessage.sendData(true);
     this.editData.changeEntity(`skill/${id}`, data).subscribe(() => {
       window.location.reload();
     });

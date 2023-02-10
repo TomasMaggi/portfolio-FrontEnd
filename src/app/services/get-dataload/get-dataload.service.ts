@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetDataloadService {
-  BASE_URL: string = 'http://localhost:8080/api/v1/';
+  BASE_URL: string = 'https://ap-restapi.onrender.com/api/v1/';
 
   constructor(private http: HttpClient) {}
 
