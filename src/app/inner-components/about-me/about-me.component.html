@@ -1,13 +1,7 @@
 <section class="about-me">
   <img src="{{ dataload.img_route }}" alt="my img" class="my-img" />
   <div *ngIf="editing" class="text-container">
-    <input
-      type="text"
-      #nombre
-      value="{{ dataload.first_name }}"
-      c
-      lass="name"
-    />
+    <input type="text" #nombre value="{{ dataload.first_name }}" lass="name" />
     <input
       type="text"
       #apellido

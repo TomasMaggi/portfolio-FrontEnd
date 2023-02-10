@@ -1,5 +1,5 @@
 <div class="project">
-  <div *ngIf="editing">
+  <div *ngIf="editing" class="project-container">
     <img class="logo" src="{{ dataload.img_url }}" alt="project img" />
     <div>
       <input type="text" value="{{ dataload.title }}" #title />
@@ -13,7 +13,7 @@
     </button>
     <button (click)="editing = false">cancel</button>
   </div>
-  <div *ngIf="!editing">
+  <div *ngIf="!editing" class="project-container">
     <img class="logo" src="{{ dataload.img_url }}" alt="project img" />
     <div>
       <h3 class="project-title">{{ dataload.title }}</h3>

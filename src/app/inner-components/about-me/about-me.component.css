@@ -1,5 +1,6 @@
 .my-img {
   width: 100px;
+  height: 100px;
   border-radius: 100%;
   margin-top: -70px;
   margin-bottom: 10px;
@@ -16,8 +17,10 @@
 .name {
   align-self: flex-start;
   flex-basis: 20%;
+  font-size: large;
 }
 
 .para {
-  align-self: flex-end;
+  align-items: left;
+  margin-top: -50px;
 }
