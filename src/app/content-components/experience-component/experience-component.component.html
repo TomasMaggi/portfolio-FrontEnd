@@ -11,21 +11,23 @@
         <p>finish date: {{ transformDate(dataload.finish_date) }}</p>
       </div>
     </div>
-  </div>
-  <div *ngIf="isLogged">
-    <button (click)="edit(dataload)">edit</button>
+    <div *ngIf="isLogged">
+      <button (click)="edit(dataload)">edit</button>
+    </div>
   </div>
 </div>
 <div *ngIf="editing">
   <div class="dataload-container">
     <img src="{{ dataload.company_logo_url }}" alt="logo" class="logo" />
-    <div class="description">
+
+    <div class="editing-container">
       <input #id style="display: none" value="{{ dataload.id }}" />
       <input type="text" value="{{ dataload.company_name }}" #company_name />
-      <textarea cols="30" rows="10" #description>
+      <textarea cols="70" rows="3" #description>
           {{ dataload.job_description }}
         </textarea
       >
+
       <div *ngIf="dataload.start_date != null">
         <label for="start_date">start date:</label>
         <input
@@ -44,10 +46,10 @@
           value="{{ transformDate(dataload.finish_date) }}"
         />
       </div>
+      <button (click)="save(id.value, company_name.value, description.value)">
+        save
+      </button>
+      <button (click)="editing = false">cancel</button>
     </div>
   </div>
-  <button (click)="save(id.value, company_name.value, description.value)">
-    save
-  </button>
-  <button (click)="editing = false">cancel</button>
 </div>

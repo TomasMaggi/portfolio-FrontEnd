@@ -1,5 +1,5 @@
 <div class="skill">
-  <div *ngIf="editing">
+  <div *ngIf="editing" class="editing-container">
     <img src="{{ dataload.icon_url }}" alt="skill image" class="logo" />
     <input type="text" value="{{ dataload.technology }}" #technology />
     <input

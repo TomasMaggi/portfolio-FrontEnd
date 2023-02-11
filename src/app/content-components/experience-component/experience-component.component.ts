@@ -44,8 +44,8 @@ export class ExperienceComponentComponent implements OnInit {
     id: string,
     company_name: string,
     description: string,
-    start_Date: string | null = null,
-    finish_date: string | null = null
+    start_Date: Date | null = this.dataload.start_date,
+    finish_date: Date | null = this.dataload.finish_date
   ) {
     const data = {
       company_name: company_name,
