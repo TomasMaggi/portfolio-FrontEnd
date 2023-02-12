@@ -13,3 +13,9 @@
   padding-bottom: 10px;
   flex-wrap: wrap;
 }
+
+.editing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -9,4 +9,29 @@
       [isLogged]="isLogged"
     ></app-project-component>
   </div>
+  <div *ngIf="!adding && isLogged">
+    <button (click)="adding = true">add</button>
+  </div>
+  <div *ngIf="adding" class="editing-container">
+    <input type="url" placeholder="url" #url />
+    <input type="text" placeholder="title" #title />
+    <textarea
+      type="text"
+      placeholder="description"
+      cols="70"
+      rows="3"
+      #description
+    >
+    </textarea>
+    <input type="url" placeholder="repo url" #repo />
+    <input type="url" placeholder="live url" #live />
+    <button
+      (click)="
+        save(url.value, title.value, description.value, repo.value, live.value)
+      "
+    >
+      save
+    </button>
+    <button (click)="adding = false">cancel</button>
+  </div>
 </section>
