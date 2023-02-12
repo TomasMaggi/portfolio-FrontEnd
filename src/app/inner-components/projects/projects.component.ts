@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProject } from 'src/app/interfaces/project_interface';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
+import { ComponentGeneratorService } from 'src/app/services/component-generator/component-generator.service';
 
 @Component({
   selector: 'app-projects',
@@ -12,8 +14,13 @@ export class ProjectsComponent implements OnInit {
 
   @Input()
   isLogged: boolean = false;
+  adding: boolean = false;
 
-  constructor(private getdataservice: GetDataloadService) {}
+  constructor(
+    private getdataservice: GetDataloadService,
+    private addService: ComponentGeneratorService,
+    private loadingMessage: IsLoadingService
+  ) {}
 
   ngOnInit(): void {
     this.fill();
@@ -29,5 +36,26 @@ export class ProjectsComponent implements OnInit {
       .subscribe((data: any) => {
         this.dataload = data;
       });
+  }
+
+  save(
+    url: string,
+    title: string,
+    description: string,
+    repo: string,
+    live: string
+  ) {
+    const data = {
+      title: title,
+      repo_url: repo,
+      live_url: live,
+      description: description,
+      img_url: url,
+    };
+
+    this.loadingMessage.sendData(false);
+    this.addService.add('project/', data).subscribe(() => {
+      window.location.reload();
+    });
   }
 }

@@ -4,3 +4,9 @@
   gap: 30px;
   align-items: left;
 }
+
+.editing-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

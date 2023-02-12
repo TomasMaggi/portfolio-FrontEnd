@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
 import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
@@ -28,7 +29,8 @@ export class AboutMeComponent implements OnInit {
   constructor(
     private getdataservice: GetDataloadService,
     private editdataservice: EditDataService,
-    private loading_message: IsLoadingService
+    private loading_message: IsLoadingService,
+    private titleSevice: Title
   ) {}
 
   ngOnInit(): void {
@@ -45,6 +47,9 @@ export class AboutMeComponent implements OnInit {
       .subscribe((data: any) => {
         this.dataload = data;
         this.loading_message.sendData(false);
+        this.titleSevice.setTitle(
+          `${this.dataload.first_name} ${this.dataload.last_name} | Portfolio`
+        );
       });
   }
 

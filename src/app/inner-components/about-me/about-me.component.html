@@ -1,14 +1,13 @@
 <section class="about-me">
   <img src="{{ dataload.img_route }}" alt="my img" class="my-img" />
-  <div *ngIf="editing" class="text-container">
-    <input type="text" #nombre value="{{ dataload.first_name }}" lass="name" />
-    <input
-      type="text"
-      #apellido
-      value="{{ dataload.last_name }}"
-      class="name"
-    />
-    <textarea id="" cols="30" rows="10" #about class="para">{{
+  <div *ngIf="editing" class="text-container editing-container">
+    <div class="short">
+      <input type="text" #img_url value="{{ dataload.img_route }}" />
+      <input type="text" #nombre value="{{ dataload.first_name }}" />
+      <input type="text" #apellido value="{{ dataload.last_name }}" />
+    </div>
+
+    <textarea id="" cols="80" rows="3" #about>{{
       dataload.about_me_text
     }}</textarea>
 

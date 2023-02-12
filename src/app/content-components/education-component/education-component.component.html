@@ -1,6 +1,6 @@
 <div class="education-container">
   <div *ngIf="editing">
-    <div class="info-container">
+    <div class="editing-container">
       <input type="text" value="{{ dataload.title }}" #title />
       <input type="text" value="{{ dataload.type }}" #type />
       <input type="text" value="{{ dataload.institution }}" #institution />
@@ -8,10 +8,18 @@
         {{ dataload.description }}
       </textarea>
       <div *ngIf="dataload.date_of_start != null">
-        <p>started: {{ transformDate(dataload.date_of_start) }}</p>
+        <input
+          type="date"
+          (input)="dataload.date_of_start = addDate($event)"
+          value="{{ transformDate(dataload.date_of_start) }}"
+        />
       </div>
       <div *ngIf="dataload.date_of_finish != null">
-        <p>finshed: {{ transformDate(dataload.date_of_finish) }}</p>
+        <input
+          type="date"
+          (input)="dataload.date_of_finish = addDate($event)"
+          value="{{ transformDate(dataload.date_of_finish) }}"
+        />
       </div>
     </div>
     <button (click)="editing = false">cancel</button>
@@ -46,6 +54,7 @@
     </div>
     <div *ngIf="isLogged">
       <button (click)="edit()">edit</button>
+      <button (click)="erase(dataload.id)">delete</button>
     </div>
   </div>
 </div>

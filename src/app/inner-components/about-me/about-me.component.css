@@ -24,3 +24,18 @@
   align-items: left;
   margin-top: -50px;
 }
+.editing-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.editing-container textarea {
+  margin-top: -50px;
+}
+
+.short {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

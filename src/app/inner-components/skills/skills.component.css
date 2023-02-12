@@ -21,3 +21,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.editing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -4,3 +4,9 @@
   gap: 10px;
   padding-bottom: 10px;
 }
+
+.editing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

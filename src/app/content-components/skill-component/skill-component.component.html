@@ -1,5 +1,5 @@
 <div class="skill">
-  <div *ngIf="editing">
+  <div *ngIf="editing" class="editing-container">
     <img src="{{ dataload.icon_url }}" alt="skill image" class="logo" />
     <input type="text" value="{{ dataload.technology }}" #technology />
     <input
@@ -21,6 +21,7 @@
     <p class="percentage">{{ dataload.percentage }}%</p>
     <div *ngIf="isLogged">
       <button (click)="edit()">edit</button>
+      <button (click)="erase(dataload.id)">delete</button>
     </div>
   </div>
 </div>

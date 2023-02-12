@@ -9,4 +9,31 @@
       [isLogged]="isLogged"
     ></app-education-component>
   </div>
+  <div *ngIf="!adding && isLogged">
+    <button (click)="adding = true">add</button>
+  </div>
+  <div *ngIf="adding" class="editing-container">
+    <input type="text" placeholder="title" #title />
+    <input type="text" placeholder="type" #type />
+    <input type="text" placeholder="institution" #institution />
+    <textarea
+      type="text"
+      placeholder="description"
+      cols="70"
+      rows="3"
+      #description
+    >
+    </textarea>
+    <input type="date" (input)="new_start_date = addDate($event)" />
+    <input type="date" (input)="new_finish_date = addDate($event)" />
+
+    <button
+      (click)="
+        save(title.value, type.value, institution.value, description.value)
+      "
+    >
+      save
+    </button>
+    <button (click)="adding = false">cancel</button>
+  </div>
 </section>

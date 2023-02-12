@@ -17,3 +17,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.editing-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

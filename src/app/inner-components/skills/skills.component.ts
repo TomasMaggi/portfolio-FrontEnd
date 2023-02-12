@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ISkill } from 'src/app/interfaces/skill_interface';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
+import { ComponentGeneratorService } from 'src/app/services/component-generator/component-generator.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
 @Component({
   selector: 'app-skills',
@@ -12,8 +14,13 @@ export class SkillsComponent implements OnInit {
 
   @Input()
   isLogged: boolean = false;
+  adding: boolean = false;
 
-  constructor(private getdataservice: GetDataloadService) {}
+  constructor(
+    private getdataservice: GetDataloadService,
+    private addService: ComponentGeneratorService,
+    private loadingMessage: IsLoadingService
+  ) {}
 
   ngOnInit(): void {
     this.fill();
@@ -29,5 +36,17 @@ export class SkillsComponent implements OnInit {
       .subscribe((data: any) => {
         this.dataload = data;
       });
+  }
+
+  save(url: string, technology: string, percentage: string) {
+    const data = {
+      technology: technology,
+      percentage: percentage,
+      icon_url: url,
+    };
+    this.loadingMessage.sendData(false);
+    this.addService.add('skill/', data).subscribe(() => {
+      window.location.reload();
+    });
   }
 }

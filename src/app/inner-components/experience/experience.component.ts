@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetDataloadService } from 'src/app/services/get-dataload/get-dataload.service';
 import { DatePipe } from '@angular/common';
+import { ComponentGeneratorService } from 'src/app/services/component-generator/component-generator.service';
+import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
 @Component({
   selector: 'app-experience',
@@ -11,17 +13,24 @@ export class ExperienceComponent implements OnInit {
   @Input()
   isLogged: boolean = false;
   editing: boolean = false;
+  adding: boolean = false;
+
+  new_start_date: Date | null = null;
+  new_finish_date: Date | null = null;
 
   // later whis will be filled with the info inside the request
   dataload: any[] = [];
 
   constructor(
     private getdataservice: GetDataloadService,
-    private datepipe: DatePipe
+    private datepipe: DatePipe,
+    private newComponentService: ComponentGeneratorService,
+    private loadingMessage: IsLoadingService
   ) {}
 
   ngOnInit(): void {
     this.fill();
+    console.log(this.isLogged);
   }
 
   fill(): void {
@@ -34,18 +43,27 @@ export class ExperienceComponent implements OnInit {
       .get_dataload(url, this.dataload)
       .subscribe((data: any) => {
         this.dataload = data;
-        for (let i of this.dataload) {
-          i['edditing'] = false;
-        }
       });
   }
   transformDate(date: any) {
     return this.datepipe.transform(date, 'yyyy-MM-dd');
   }
 
-  edit(expereince: any) {
-    console.log(expereince.id);
+  save(name: string, descr: string, logo: string) {
+    const data = {
+      company_name: name,
+      job_description: descr,
+      company_logo_url: logo,
+      start_date: this.new_start_date,
+      finish_date: this.new_finish_date,
+    };
+    this.loadingMessage.sendData(false);
+    this.newComponentService.add('experience/', data).subscribe(() => {
+      window.location.reload();
+    });
+  }
 
-    expereince.edditing = true;
+  addDate(e: any) {
+    return new Date(e.target.value);
   }
 }

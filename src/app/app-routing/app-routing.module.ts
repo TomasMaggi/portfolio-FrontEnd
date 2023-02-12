@@ -6,7 +6,7 @@ import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: MainContentComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, title: 'login' },
   { path: '**', redirectTo: 'home' },
 ];
 

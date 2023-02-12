@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IProject } from 'src/app/interfaces/project_interface';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
 import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
+import { DeleteComponentService } from 'src/app/services/delete-component/delete-component.service';
 
 @Component({
   selector: 'app-project-component',
@@ -25,7 +26,8 @@ export class ProjectComponentComponent implements OnInit {
 
   constructor(
     private editdata: EditDataService,
-    private loadingMessage: IsLoadingService
+    private loadingMessage: IsLoadingService,
+    private deleteService: DeleteComponentService
   ) {}
 
   ngOnInit(): void {}
@@ -47,6 +49,13 @@ export class ProjectComponentComponent implements OnInit {
 
     this.editdata.changeEntity(`project/${id}`, data).subscribe(() => {
       this.editing = false;
+      window.location.reload();
+    });
+  }
+
+  erase(id: number) {
+    this.loadingMessage.sendData(false);
+    this.deleteService.delete(`project/${id}`).subscribe(() => {
       window.location.reload();
     });
   }

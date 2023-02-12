@@ -1,8 +1,10 @@
 <section class="upper-header">
   <div *ngIf="!isLogged">
-    <button class="btn btn-outline-primary">
-      <a href="/login"> <i class="bi bi-person-circle"></i> login </a>
-    </button>
+    <a href="/login">
+      <button class="btn btn-outline-primary">
+        <i class="bi bi-person-circle"></i> login
+      </button>
+    </a>
   </div>
   <div *ngIf="isLogged">
     <button class="btn btn-outline-primary" (click)="logout()">
