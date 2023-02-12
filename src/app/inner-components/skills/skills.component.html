@@ -11,4 +11,17 @@
       ></app-skill-component>
     </div>
   </div>
+  <div *ngIf="!adding && isLogged">
+    <button (click)="adding = true">add</button>
+  </div>
+  <div *ngIf="adding" class="editing-container">
+    <input type="url" #url placeholder="icon url" />
+    <input type="text" #technology placeholder="technology" />
+    <input type="range" min="0" max="100" value="50" #percentage />
+
+    <button (click)="save(url.value, technology.value, percentage.value)">
+      save
+    </button>
+    <button (click)="adding = false">cancel</button>
+  </div>
 </section>

@@ -9,7 +9,7 @@
       [isLogged]="isLogged"
     ></app-education-component>
   </div>
-  <div *ngIf="!adding">
+  <div *ngIf="!adding && isLogged">
     <button (click)="adding = true">add</button>
   </div>
   <div *ngIf="adding" class="editing-container">
