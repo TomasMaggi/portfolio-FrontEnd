@@ -8,10 +8,18 @@
         {{ dataload.description }}
       </textarea>
       <div *ngIf="dataload.date_of_start != null">
-        <p>started: {{ transformDate(dataload.date_of_start) }}</p>
+        <input
+          type="date"
+          (input)="dataload.date_of_start = addDate($event)"
+          value="{{ transformDate(dataload.date_of_start) }}"
+        />
       </div>
       <div *ngIf="dataload.date_of_finish != null">
-        <p>finshed: {{ transformDate(dataload.date_of_finish) }}</p>
+        <input
+          type="date"
+          (input)="dataload.date_of_finish = addDate($event)"
+          value="{{ transformDate(dataload.date_of_finish) }}"
+        />
       </div>
     </div>
     <button (click)="editing = false">cancel</button>

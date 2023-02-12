@@ -55,14 +55,20 @@ export class EducationComponentComponent implements OnInit {
       institution: institution,
       description: description,
       date_of_start: this.dataload.date_of_start,
-      date_of_finish: this.dataload.date_of_start,
+      date_of_finish: this.dataload.date_of_finish,
     };
 
     this.loadingMessage.sendData(true);
+    console.log(this.dataload.date_of_start);
 
     this.putdata.changeEntity(`education/${id}`, data).subscribe(() => {
       this.editing = false;
       window.location.reload();
     });
+  }
+
+  addDate(e: any) {
+    console.log(e);
+    return new Date(e.target.value);
   }
 }

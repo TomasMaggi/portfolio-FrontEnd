@@ -31,7 +31,7 @@
       <div *ngIf="dataload.start_date != null">
         <label for="start_date">start date:</label>
         <input
-          #start_date
+          (input)="dataload.start_date = addDate($event)"
           id="start_date"
           type="date"
           value="{{ transformDate(dataload.start_date) }}"
@@ -40,7 +40,7 @@
       <div *ngIf="dataload.finish_date != null">
         <label for="finish_date">finish date:</label>
         <input
-          #start_date
+          (input)="dataload.finish_date = addDate($event)"
           id="finish_date"
           type="date"
           value="{{ transformDate(dataload.finish_date) }}"

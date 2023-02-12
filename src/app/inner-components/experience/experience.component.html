@@ -9,4 +9,26 @@
       [isLogged]="isLogged"
     ></app-experience-component>
   </div>
+  <div *ngIf="!adding">
+    <button (click)="adding = true">add</button>
+  </div>
+  <div *ngIf="adding" class="editing-container">
+    <input type="text" placeholder="logo url" #logo />
+    <input type="text" placeholder="company name" #name />
+    <textarea
+      type="text"
+      placeholder="description"
+      cols="70"
+      rows="3"
+      #description
+    >
+    </textarea>
+    <input type="date" (input)="new_start_date = addDate($event)" />
+    <input type="date" (input)="new_finish_date = addDate($event)" />
+
+    <button (click)="save(name.value, description.value, logo.value)">
+      save
+    </button>
+    <button (click)="adding = false">cancel</button>
+  </div>
 </section>
