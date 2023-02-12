@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ISkill } from 'src/app/interfaces/skill_interface';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
 import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
+import { DeleteComponentService } from 'src/app/services/delete-component/delete-component.service';
 
 @Component({
   selector: 'app-skill-component',
@@ -24,7 +25,8 @@ export class SkillComponentComponent implements OnInit {
 
   constructor(
     private editData: EditDataService,
-    private loadingMessage: IsLoadingService
+    private loadingMessage: IsLoadingService,
+    private deleteService: DeleteComponentService
   ) {}
 
   ngOnInit(): void {}
@@ -41,6 +43,12 @@ export class SkillComponentComponent implements OnInit {
     };
     this.loadingMessage.sendData(true);
     this.editData.changeEntity(`skill/${id}`, data).subscribe(() => {
+      window.location.reload();
+    });
+  }
+  erase(id: number) {
+    this.loadingMessage.sendData(false);
+    this.deleteService.delete(`skill/${id}`).subscribe(() => {
       window.location.reload();
     });
   }
