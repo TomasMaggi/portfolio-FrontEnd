@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IExperience } from 'src/app/interfaces/experience_interface';
+import { DeleteComponentService } from 'src/app/services/delete-component/delete-component.service';
 import { EditDataService } from 'src/app/services/edit-data/edit-data.service';
 import { IsLoadingService } from 'src/app/services/is-loading/is-loading.service';
 
@@ -27,7 +28,8 @@ export class ExperienceComponentComponent implements OnInit {
   constructor(
     private datepipe: DatePipe,
     private saveDataService: EditDataService,
-    private loadingMessage: IsLoadingService
+    private loadingMessage: IsLoadingService,
+    private deleteService: DeleteComponentService
   ) {}
 
   ngOnInit(): void {}
@@ -66,5 +68,12 @@ export class ExperienceComponentComponent implements OnInit {
   }
   addDate(e: any) {
     return new Date(e.target.value);
+  }
+
+  erase(id: number) {
+    this.loadingMessage.sendData(false);
+    this.deleteService.delete(`experience/${id}`).subscribe(() => {
+      window.location.reload();
+    });
   }
 }
