@@ -57,7 +57,6 @@ export class ExperienceComponentComponent implements OnInit {
       finish_date: finish_date,
     };
 
-    console.log(data.start_date);
     this.editing = false;
     this.loadingMessage.sendData(true);
     this.saveDataService
