@@ -30,7 +30,6 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
     this.fill();
-    console.log(this.isLogged);
   }
 
   fill(): void {

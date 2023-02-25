@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { EducationComponentComponent } from './content-components/education-comp
 import { SkillComponentComponent } from './content-components/skill-component/skill-component.component';
 import { ProjectComponentComponent } from './content-components/project-component/project-component.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { TimelimitCheckerInterceptor } from './timelimit-checker.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,14 @@ import { LoadingComponent } from './components/loading/loading.component';
     LoadingComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TimelimitCheckerInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
