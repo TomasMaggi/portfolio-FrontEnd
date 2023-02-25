@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { UpperMenuComponent } from './components/upper-menu/upper-menu.component';
@@ -21,6 +22,7 @@ import { SkillComponentComponent } from './content-components/skill-component/sk
 import { ProjectComponentComponent } from './content-components/project-component/project-component.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { TimelimitCheckerInterceptor } from './timelimit-checker.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,13 @@ import { TimelimitCheckerInterceptor } from './timelimit-checker.interceptor';
     ProjectComponentComponent,
     LoadingComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+  ],
   providers: [
     DatePipe,
     {

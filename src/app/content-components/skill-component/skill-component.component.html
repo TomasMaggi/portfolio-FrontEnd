@@ -19,6 +19,10 @@
     <img src="{{ dataload.icon_url }}" alt="skill image" class="logo" />
     <h3 class="skill-name">{{ dataload.technology }}</h3>
     <p class="percentage">{{ dataload.percentage }}%</p>
+    <mat-progress-spinner
+      mode="determinate"
+      [value]="dataload.percentage"
+    ></mat-progress-spinner>
     <div *ngIf="isLogged">
       <button (click)="edit()">edit</button>
       <button (click)="erase(dataload.id)">delete</button>
