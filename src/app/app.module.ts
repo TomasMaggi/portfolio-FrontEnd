@@ -21,6 +21,7 @@ import { SkillComponentComponent } from './content-components/skill-component/sk
 import { ProjectComponentComponent } from './content-components/project-component/project-component.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { TimelimitCheckerInterceptor } from './timelimit-checker.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { TimelimitCheckerInterceptor } from './timelimit-checker.interceptor';
     ProjectComponentComponent,
     LoadingComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [
     DatePipe,
     {
